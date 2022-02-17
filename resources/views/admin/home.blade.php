@@ -1,0 +1,52 @@
+@extends('layout.admin')
+
+@section('title', 'Home ')
+@section('sub_title', 'Dashbord ')
+
+@section('content')
+
+    <div class="wrapper">
+        <div class="container-fluid">
+
+            <!-- Page-Title -->
+            <div class="row">
+
+                <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="card-box tilebox-one">
+                        <i class="fi-box float-right"></i>
+                        <h6 class="text-muted text-uppercase mb-3">Orders</h6>
+                        <h4 class="mb-3" data-plugin="counterup">1,587</h4>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="card-box tilebox-one">
+                        <i class="fi-layers float-right"></i>
+                        <h6 class="text-muted text-uppercase mb-3">Revenue</h6>
+                        <h4 class="mb-3">$<span data-plugin="counterup">46,782</span></h4>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="card-box tilebox-one">
+                        <i class="fi-tag float-right"></i>
+                        <h6 class="text-muted text-uppercase mb-3">Average Price</h6>
+                        <h4 class="mb-3">$<span data-plugin="counterup">15.9</span></h4>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="card-box tilebox-one">
+                        <i class="fi-briefcase float-right"></i>
+                        <h6 class="text-muted text-uppercase mb-3">Product Sold</h6>
+                        <h4 class="mb-3" data-plugin="counterup">1,890</h4>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- end container -->
+    </div>
+    <!-- end wrapper -->
+
+@endsection

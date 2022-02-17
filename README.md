@@ -1,5 +1,5 @@
-# Template Site Dinamico
-Site Dinamico 
+# Trabalho Imuniza_DB
+Site Imuniza 
 
 Para iniciar a trabalhar no projeto:
 
@@ -9,7 +9,6 @@ Para iniciar a trabalhar no projeto:
 - Criar arquivo .env com base no .env.example
 - Executar **php artisan key:generate**
 - Executar **php artisan migrate --seed**
-- Marcar tempo no clockify e iniciar a tarefa
 
 Você precisa de fazer um fork do projeto para seu repositório
 
