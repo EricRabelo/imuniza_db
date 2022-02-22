@@ -77,7 +77,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="form-group col-md-12 col-sm-12">
+                        <div class="form-group col-md-6 col-sm-12">
                             <label for="detalhes-cpf">CPF</label>
                             <input type="text" id="detalhes-cpf" name="detalhes-cpf" class="form-control" readonly>
                         </div>
