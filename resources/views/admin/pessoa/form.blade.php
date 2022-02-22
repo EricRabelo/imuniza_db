@@ -1,6 +1,6 @@
 <div class="form-row">
     <div class="form-group col-md-12 col-sm-12">
-        <label for="title">CPF</label>
+        <label for="cpf">CPF</label>
         <div>
             <input type="text" id="cpf" name="cpf" value="{{ isset($pessoa)? $pessoa->cpf: old('cpf') }}" class="form-control @error('cpf') is-invalid @enderror" placeholder="Digite o CPF">
             @error('cpf')
