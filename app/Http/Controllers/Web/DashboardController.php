@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use App\Models\Pessoa;
+use App\Models\Vacina;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.home');
+        $pessoas = Pessoa::count();
+        $vacinas = Vacina::count();
+        return view('admin.home', compact('pessoas', 'vacinas'));
     }
 }

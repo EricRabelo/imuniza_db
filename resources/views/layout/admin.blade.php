@@ -96,13 +96,15 @@
                             <a href="#"><i class="fi-layout"></i> <span> Informações </span> <span
                                     class="menu-arrow"></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
-                                <li><a href="{{ route('admin.aboutus.edit', 1) }}">Sobre Nós</a></li>
-                                <li><a href="{{ route('admin.contact.edit', 1) }}">Contato</a></li>
-                                <li><a href="{{ route('admin.banner.index') }}">Banner</a></li>
+                                <!---<li><a href="{{ route('admin.aboutus.edit', 1) }}">Sobre Nós</a></li>-->
+                                <!---<li><a href="{{ route('admin.contact.edit', 1) }}">Contato</a></li>-->
+                                <!---<li><a href="{{ route('admin.banner.index') }}">Banner</a></li>-->
+                                <li><a href="{{ route('admin.pessoa.index') }}">Pessoa</a></li>
+                                <li><a href="{{ route('admin.vacina.index') }}">Vacina</a></li>
                             </ul>
                         </li>
 
-                        <li>
+                        <!---<li>
                             <a href="#"><i class="fi-briefcase"></i><span> Portfólio </span> <span
                                     class="menu-arrow"></span></a>
                             <ul class="nav-second-level" aria-expanded="false">
@@ -120,7 +122,7 @@
                                 <li><a href="{{ route('admin.postcategorie.index') }}">Categoria</a></li>
                                 <li><a href="/">Postagem</a></li>
                             </ul>
-                        </li>
+                        </li>-->
 
                     </ul>
 
@@ -168,7 +170,7 @@
             </div> <!-- content -->
 
             <footer class="footer text-right">
-                2021 Adapti - Soluções Web
+                Imuniza Database
             </footer>
 
         </div>
