@@ -100,6 +100,7 @@
                                 <!---<li><a href="{{ route('admin.contact.edit', 1) }}">Contato</a></li>-->
                                 <!---<li><a href="{{ route('admin.banner.index') }}">Banner</a></li>-->
                                 <li><a href="{{ route('admin.pessoa.index') }}">Pessoa</a></li>
+                                <li><a href="{{ route('admin.vacina.index') }}">Vacina</a></li>
                             </ul>
                         </li>
 

@@ -35,7 +35,6 @@ class PessoaFactory extends Factory
             'sexo' => 'm',
             'cidade' => 'Sao gabriel',
             'estado' => 'ES',
-            'endereco' => 'asdhsdfuihad',
             'rua' => 'sdfgasdfga' ,
             'bairro' => 'teste',
             'num' => '2',

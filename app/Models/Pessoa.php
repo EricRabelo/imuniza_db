@@ -19,7 +19,6 @@ class Pessoa extends Model
         'sexo',
         'cidade',
         'estado',
-        'endereco',
         'rua',
         'bairro',
         'num',

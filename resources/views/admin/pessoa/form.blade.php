@@ -77,17 +77,6 @@
         </div>
     </div>
     <div class="form-group col-md-12 col-sm-12">
-        <label for="endereco">Endereço</label>
-        <div>
-            <input type="text" id="endereco" name="endereco" value="{{ isset($pessoa)? $pessoa->endereco: old('endereco') }}" class="form-control @error('endereco') is-invalid @enderror" placeholder="Digite o endereço">
-            @error('endereco')
-            <span class="invalid-feedback" role="alert">
-                <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-    </div>
-    <div class="form-group col-md-12 col-sm-12">
         <label for="rua">Rua</label>
         <div>
             <input type="text" id="rua" name="rua" value="{{ isset($pessoa)? $pessoa->rua: old('rua') }}" class="form-control @error('rua') is-invalid @enderror" placeholder="Digite o nome da rua">
