@@ -23,7 +23,6 @@ class CreatePessoasTable extends Migration
             $table->string('sexo',1)->nullable(false);
             $table->string('cidade',255)->nullable(false);
             $table->string('estado',2)->nullable(false);
-            $table->string('endereco',255)->nullable(false);
             $table->string('rua',255)->nullable(false);
             $table->string('bairro',255)->nullable(false);
             $table->integer('num')->nullable(false);

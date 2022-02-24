@@ -4,6 +4,7 @@ use App\Http\Controllers\Web\AboutUsController;
 use App\Http\Controllers\Web\AuthController;
 use App\Http\Controllers\Web\BannerController;
 use App\Http\Controllers\Web\PessoaController;
+use App\Http\Controllers\Web\VacinaController;
 use App\Http\Controllers\Web\ContactController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\PostCategorieController;
@@ -39,6 +40,7 @@ Route::prefix('admin/')->name('admin.')->middleware("auth:web")->group(function 
         'banner' =>  BannerController::class,
         'contact' =>  ContactController::class,
         'pessoa' =>  PessoaController::class,
+        'vacina' =>  VacinaController::class,
         'postcategorie' =>  PostCategorieController::class,
     ]);
 

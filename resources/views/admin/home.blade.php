@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
 @section('title', 'Home ')
-@section('sub_title', 'Dashbord ')
+@section('sub_title', 'Dashboard ')
 
 @section('content')
 
@@ -13,7 +13,7 @@
 
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
-                        <i class="fi-box float-right"></i>
+                        <i class="fi-head float-right"></i>
                         <h6 class="text-muted text-uppercase mb-3">Pessoas</h6>
                         <h4 class="mb-3" data-plugin="counterup">{{ $pessoas }}</h4>
                     </div>
@@ -23,11 +23,9 @@
                     <div class="card-box tilebox-one">
                         <i class="fi-layers float-right"></i>
                         <h6 class="text-muted text-uppercase mb-3">Vacinas</h6>
-                        <h4 class="mb-3">$<span data-plugin="counterup">300.000</span></h4>
+                        <h4 class="mb-3" data-plugin="counterup">{{ $vacinas }}</h4>
                     </div>
                 </div>
-
-                <!-- <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
                         <i class="fi-tag float-right"></i>
                         <h6 class="text-muted text-uppercase mb-3">Average Price</h6>

@@ -1,7 +1,7 @@
 @extends('layout.admin')
 
-@section('title', 'Pessoas | Admin')
-@section('sub_title', 'Pessoas')
+@section('title', 'Vacinas | Admin')
+@section('sub_title', 'Vacinas')
 
 @section('style')
 
@@ -21,42 +21,38 @@
         <div class="col-12">
             <div class="card-box table-responsive">
                 <div style="display: flex;justify-content: space-between" class="card-header py-2 mb-3">
-                    <h6 class="mt-3 font-weight-bold text-grey">Listagem de Pessoas</h6>
-                    <a href=" {{ route('admin.pessoa.create') }} " class="btn btn-primary my-2">Nova Pessoa</a>
+                    <h6 class="mt-3 font-weight-bold text-grey">Listagem de Vacinas</h6>
+                    <a href=" {{ route('admin.vacina.create') }} " class="btn btn-primary my-2">Nova Vacina</a>
                 </div>
 
                 <table class="table table-striped table-bordered datatable" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th>CPF</th>
                             <th>Nome</th>
-                            <th>Sexo</th>
-                            <th>Etnia</th>
-                            <th>Plano de Saude</th>
+                            <th>Total de vacinas</th>
+                            <th>Vacinas Aplicadas</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @foreach ($pessoas as $pessoa)
+                        @foreach ($vacinas as $vacina)
                             <tr>
-                                <td>{{ $pessoa->cpf }}</td>
-                                <td>{{ $pessoa->nome }}</td>
-                                <td>{{ $pessoa->sexo }}</td>
-                                <td>{{ $pessoa->etnia }}</td>
-                                <td>{{ $pessoa->planoSaude }}</td>
+                                <td>{{ $vacina->nome }}</td>
+                                <td>{{ 0 }}</td>
+                                <td>{{ 0 }}</td>
                                 <td>
                                     <!-- botao detalhes -->
-                                    <button type="button" title="Detalhes da Pessoa" class="btn btn-primary"
-                                        data-toggle="modal" data-target="#modal-detalhes" data-id="{{ $pessoa->cpf }}"><i
+                                    <button type="button" title="Detalhes da Vacina" class="btn btn-primary"
+                                        data-toggle="modal" data-target="#modal-detalhes" data-id="{{ $vacina->idVacina }}"><i
                                             class="dripicons-italic"></i></button>
                                     <!-- botao editar -->
-                                    <a type="button" title="Editar Pessoa" class="btn btn-warning"
-                                        href="{{ route('admin.pessoa.edit', $pessoa->cpf) }}"><i
+                                    <a type="button" title="Editar Vacina" class="btn btn-warning"
+                                        href="{{ route('admin.vacina.edit', $vacina->idVacina) }}"><i
                                             class="dripicons-pencil"></i></a>
                                     <!-- Botao apagar -->
-                                    <button type="button" title="Apagar Pessoa" class="btn btn-danger" data-toggle="modal"
-                                        data-target="#modal-excluir" data-id="{{ $pessoa->cpf }}"><i
+                                    <button type="button" title="Apagar Vacina" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#modal-excluir" data-id="{{ $vacina->idVacina }}"><i
                                             class="dripicons-trash"></i></button>
                                 </td>
                             </tr>
@@ -73,64 +69,14 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Detalhes da Pessoa</h5>
+                    <h5 class="modal-title">Detalhes da Vacina</h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-cpf">CPF</label>
-                            <input type="text" id="detalhes-cpf" name="detalhes-cpf" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-numeroSus">Numero do SUS</label>
-                            <input id="detalhes-numeroSus" name="detalhes-numeroSus" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
                             <label for="detalhes-nome">Nome</label>
                             <input id="detalhes-nome" name="detalhes-nome" class="form-control" readonly>
                         </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-nomeMae">Nome da Mãe</label>
-                            <input id="detalhes-nomeMae" name="detalhes-nomeMae" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-sexo">Sexo</label>
-                            <input id="detalhes-sexo" name="detalhes-sexo" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-cidade">Cidade</label>
-                            <input id="detalhes-cidade" name="detalhes-cidade" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-estado">Estado</label>
-                            <input id="detalhes-estado" name="detalhes-estado" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-rua">Rua</label>
-                            <input id="detalhes-rua" name="detalhes-rua" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-bairro">Bairro</label>
-                            <input id="detalhes-bairro" name="detalhes-bairro" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-num">Numero</label>
-                            <input id="detalhes-num" name="detalhes-num" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-estadoCivil">Estado Civil</label>
-                            <input id="detalhes-estadoCivil" name="detalhes-estadoCivil" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-etnia">Etnia</label>
-                            <input id="detalhes-etnia" name="detalhes-etnia" class="form-control" readonly>
-                        </div>
-                        <div class="form-group col-md-6 col-sm-12">
-                            <label for="detalhes-planoSaude">Plano de Saude</label>
-                            <input id="detalhes-planoSaude" name="detalhes-planoSaude" class="form-control" readonly>
-                        </div>
-
-
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -147,7 +93,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title col-12 text-dark" id="exampleModalLabel">Confirmação</h5>
                 </div>
-                <div class="modal-body" align="center">Tem certeza de que quer excluir essa Pessoa?</div>
+                <div class="modal-body" align="center">Tem certeza de que quer excluir essa Vacina?</div>
                 <div class="modal-footer">
                     <form id="form-excluir" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -202,22 +148,10 @@
                 let modal = $(this)
 
                 const id = button.data('id')
-                const url = 'pessoa/' + id
+                const url = 'vacina/' + id
 
                 $.getJSON(url, (resposta) => {
-                    $("#detalhes-cpf").val(resposta.cpf);
-                    $("#detalhes-numeroSus").val(resposta.numeroSus);
                     $("#detalhes-nome").val(resposta.nome);
-                    $("#detalhes-nomeMae").val(resposta.nomeMae);
-                    $("#detalhes-sexo").val(resposta.sexo);
-                    $("#detalhes-cidade").val(resposta.cidade);
-                    $("#detalhes-estado").val(resposta.estado);
-                    $("#detalhes-rua").val(resposta.rua);
-                    $("#detalhes-bairro").val(resposta.bairro);
-                    $("#detalhes-num").val(resposta.num);
-                    $("#detalhes-estadoCivil").val(resposta.estadoCivil);
-                    $("#detalhes-etnia").val(resposta.etnia);
-                    $("#detalhes-planoSaude").val(resposta.planoSaude);
                 });
             })
 
@@ -226,7 +160,7 @@
 
                 var button = $(event.relatedTarget)
                 const id = button.data('id')
-                $('#form-excluir').attr('action', 'pessoa/' + id)
+                $('#form-excluir').attr('action', 'vacina/' + id)
 
             })
         });
