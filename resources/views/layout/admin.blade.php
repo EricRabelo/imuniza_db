@@ -101,6 +101,7 @@
                                 <!---<li><a href="{{ route('admin.banner.index') }}">Banner</a></li>-->
                                 <li><a href="{{ route('admin.pessoa.index') }}">Pessoa</a></li>
                                 <li><a href="{{ route('admin.vacina.index') }}">Vacina</a></li>
+                                <li><a href="{{ route('admin.fabricante.index') }}">Fabricante</a></li>
                             </ul>
                         </li>
 
@@ -170,7 +171,7 @@
             </div> <!-- content -->
 
             <footer class="footer text-right">
-                Imuniza Database
+                Imuniza Database - 2022
             </footer>
 
         </div>
