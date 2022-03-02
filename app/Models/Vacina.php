@@ -14,4 +14,8 @@ class Vacina extends Model
     protected $fillable = [
         'nome'
     ];
+
+    public function registrosvacina(){
+        return $this->hasMany(Vacina::class, 'id_Vacina', 'idVacina');
+    }
 }

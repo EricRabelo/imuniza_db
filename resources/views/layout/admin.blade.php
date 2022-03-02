@@ -101,6 +101,7 @@
                                 <!---<li><a href="{{ route('admin.banner.index') }}">Banner</a></li>-->
                                 <li><a href="{{ route('admin.pessoa.index') }}">Pessoa</a></li>
                                 <li><a href="{{ route('admin.vacina.index') }}">Vacina</a></li>
+                                <li><a href="{{ route('admin.registrovacinacao.index') }}">Registros</a></li>
                             </ul>
                         </li>
 
