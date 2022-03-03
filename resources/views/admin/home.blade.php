@@ -26,8 +26,6 @@
                         <h4 class="mb-3" data-plugin="counterup">{{ $vacinas }}</h4>
                     </div>
                 </div>
-
-                <!--<div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
                         <i class="fi-tag float-right"></i>
                         <h6 class="text-muted text-uppercase mb-3">Average Price</h6>
