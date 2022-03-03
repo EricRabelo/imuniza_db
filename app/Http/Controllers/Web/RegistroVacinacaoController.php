@@ -16,7 +16,6 @@ class RegistroVacinacaoController extends Controller
 
     private $registros;
     private $pessoas;
-    private $vacinas;
 
     public function __construct(RegistroVacinacao $registros, Pessoa $pessoas)
     {
