@@ -25,7 +25,9 @@ class LoteController extends Controller
     {
         $flag = true;
         $lotes=$this->lotes->all()->where('id_Vacina', '=', $id_Vacina);
-        return view('admin.lote.index', compact('lotes', 'flag'));
+        $quantidade = $lotes->count();
+        if($quantidade > 0)  return view('admin.lote.index', compact('lotes', 'flag'));
+        else return redirect(route('admin.lote.index'))->with('danger', 'Nao existem lotes cadastrados para essa vacina! Abaixo estão todos os lotes cadastrados');
     }
 
     /**

@@ -38,7 +38,7 @@
                     <div class="card-box tilebox-one">
                         <i class="fi-layers float-right"></i>
                         <h6 class="text-muted text-uppercase mb-3">Doses Disponiveis</h6>
-                        <h4 class="mb-3" data-plugin="counterup">{{ $doses->total }}</h4>
+                        <h4 class="mb-3" data-plugin="counterup">@if($doses->total != null) {{ $doses->total }}@else 0 @endif</h4>
                     </div>
                 </div>
                     <!--<div class="card-box tilebox-one">

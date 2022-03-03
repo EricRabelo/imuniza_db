@@ -14,4 +14,8 @@ class Doenca extends Model
     protected $fillable = [
         'nome'
     ];
+
+    public function combates(){
+        return $this->hasMany(Combate::class, 'id_Doenca', 'idDoenca');
+    }
 }

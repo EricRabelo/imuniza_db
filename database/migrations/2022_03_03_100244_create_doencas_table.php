@@ -16,7 +16,7 @@ class CreateDoencasTable extends Migration
         Schema::create('doencas', function (Blueprint $table) {
             $table->id('idDoenca');
             $table->timestamps();
-            $table->string('nome', 255)->nullable(false);
+            $table->string('nome', 255)->unique()->nullable(false);
         });
     }
 

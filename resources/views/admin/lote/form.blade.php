@@ -13,7 +13,7 @@
     <div class="form-group col-md-12 col-sm-12">
         <label for="dataRecebimento">Data de Recebimento</label>
         <div>
-            <input type="text" required id="dataRecebimento" name="dataRecebimento" value="{{ isset($lote)? $lote->dataRecebimento: old('dataRecebimento') }}" class="form-control @error('dataRecebimento') is-invalid @enderror" placeholder="yyyy-mm-dd">
+            <input type="date" required id="dataRecebimento" name="dataRecebimento" value="{{ isset($lote)? $lote->dataRecebimento: old('dataRecebimento') }}" class="form-control @error('dataRecebimento') is-invalid @enderror" placeholder="yyyy-mm-dd">
             @error('dataRecebimento')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
@@ -24,7 +24,7 @@
     <div class="form-group col-md-12 col-sm-12">
         <label for="id_Vacina">Vacina</label>
         <select id="id_Vacina" name="id_Vacina" class="form-control" required>
-            <option>--- Selecione uma Vacina ---</option>
+            <option value="">--- Selecione uma Vacina ---</option>
             @isset($vacinas)
                 @foreach ($vacinas as $vacina)
                     <option
@@ -39,7 +39,7 @@
     <div class="form-group col-md-12 col-sm-12">
         <label for="id_Fabricante">Fabricante</label>
         <select id="id_Fabricante" name="id_Fabricante" class="form-control" required>
-            <option>--- Selecione um Fabricante ---</option>
+            <option value="">--- Selecione um Fabricante ---</option>
             @isset($fabricantes)
                 @foreach ($fabricantes as $fabricante)
                     <option
@@ -65,7 +65,7 @@
     <div class="form-group col-md-12 col-sm-12">
         <label for="dataValidade">Data de Validade</label>
         <div>
-            <input type="text" required id="dataValidade" name="dataValidade" value="{{ isset($lote)? $lote->dataValidade: old('dataValidade') }}" class="form-control @error('dataValidade') is-invalid @enderror" placeholder="yyyy-mm-dd">
+            <input type="date" required id="dataValidade" name="dataValidade" value="{{ isset($lote)? $lote->dataValidade: old('dataValidade') }}" class="form-control @error('dataValidade') is-invalid @enderror" placeholder="yyyy-mm-dd">
             @error('dataValidade')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>

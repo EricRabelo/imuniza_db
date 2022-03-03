@@ -22,4 +22,8 @@ class Vacina extends Model
     public function lotes(){
         return $this->hasMany(Vacina::class, 'id_Vacina', 'idVacina');
     }
+
+    public function combates(){
+        return $this->hasMany(Combate::class, 'id_Vacina', 'idVacina');
+    }
 }
