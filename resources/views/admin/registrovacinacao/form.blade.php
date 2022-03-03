@@ -13,7 +13,7 @@
     <div class="form-group col-md-12 col-sm-12">
         <label for="id_Vacina">Vacina</label>
         <select id="id_Vacina" name="id_Vacina" class="form-control" required>
-            <option>--- Selecione uma Vacina ---</option>
+            <option value="">--- Selecione uma Vacina ---</option>
             @isset($vacinas)
                 @foreach ($vacinas as $vacina)
                     <option
@@ -28,7 +28,7 @@
     <div class="form-group col-md-12 col-sm-12">
         <label for="dataVacinacao">Data de Vacinacao</label>
         <div>
-            <input type="text" required id="dataVacinacao" name="dataVacinacao" value="{{ isset($registro)? $registro->dataVacinacao: old('dataVacinacao') }}" class="form-control @error('dataVacinacao') is-invalid @enderror" placeholder="Digite a data de vacinacao">
+            <input type="date" required id="dataVacinacao" name="dataVacinacao" value="{{ isset($registro)? $registro->dataVacinacao: old('dataVacinacao') }}" class="form-control @error('dataVacinacao') is-invalid @enderror" placeholder="Digite a data de vacinacao">
             @error('dataVacinacao')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>

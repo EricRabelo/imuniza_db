@@ -100,11 +100,12 @@
                                 <!---<li><a href="{{ route('admin.contact.edit', 1) }}">Contato</a></li>-->
                                 <!---<li><a href="{{ route('admin.banner.index') }}">Banner</a></li>-->
                                 <li><a href="{{ route('admin.pessoa.index') }}">Pessoa</a></li>
-                                <li><a href="{{ route('admin.vacina.index') }}">Vacina</a></li>
                                 <li><a href="{{ route('admin.registrovacinacao.index') }}">Registros</a></li>
+                                <li><a href="{{ route('admin.vacina.index') }}">Vacina</a></li>
+                                <li><a href="{{ route('admin.lote.index') }}">Lote</a></li>
                                 <li><a href="{{ route('admin.fabricante.index') }}">Fabricante</a></li>
                                 <li><a href="{{ route('admin.doenca.index') }}">Doença</a></li>
-                                <li><a href="{{ route('admin.lote.index') }}">Lote</a></li>
+                                <li><a href="{{ route('admin.combate.index') }}">Combate</a></li>
                             </ul>
                         </li>
 

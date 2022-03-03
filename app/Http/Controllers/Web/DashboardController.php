@@ -18,5 +18,6 @@ class DashboardController extends Controller
         $fabricantes = Fabricante::count();
         $doencas = Doenca::count();
         return view('admin.home', compact('pessoas', 'vacinas', 'fabricantes', 'doses','doencas'));
+        
     }
 }
