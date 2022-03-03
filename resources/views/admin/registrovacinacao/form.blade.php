@@ -14,7 +14,6 @@
         <label for="id_Vacina">Vacina</label>
         <select id="id_Vacina" name="id_Vacina" class="form-control" required>
             <option>--- Selecione uma Vacina ---</option>
-            var_dump($vacinas)
             @isset($vacinas)
                 @foreach ($vacinas as $vacina)
                     <option

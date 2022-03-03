@@ -43,9 +43,9 @@
                                 <td>{{ 0 }}</td>
                                 <td>
                                     <!-- botao detalhes -->
-                                    <button type="button" title="Detalhes da Vacina" class="btn btn-primary"
-                                        data-toggle="modal" data-target="#modal-detalhes" data-id="{{ $vacina->idVacina }}"><i
-                                            class="dripicons-italic"></i></button>
+                                    <a type="button" title="Exibir Lotes da Vacina" class="btn btn-primary"
+                                    href="{{ route('admin.lote.lista', $vacina->idVacina) }}"><i
+                                            class="dripicons-italic"></i></a>
                                     <!-- botao editar -->
                                     <a type="button" title="Editar Vacina" class="btn btn-warning"
                                         href="{{ route('admin.vacina.edit', $vacina->idVacina) }}"><i

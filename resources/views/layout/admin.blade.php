@@ -104,6 +104,7 @@
                                 <li><a href="{{ route('admin.registrovacinacao.index') }}">Registros</a></li>
                                 <li><a href="{{ route('admin.fabricante.index') }}">Fabricante</a></li>
                                 <li><a href="{{ route('admin.doenca.index') }}">Doença</a></li>
+                                <li><a href="{{ route('admin.lote.index') }}">Lote</a></li>
                             </ul>
                         </li>
 

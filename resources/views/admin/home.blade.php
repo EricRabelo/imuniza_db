@@ -21,12 +21,27 @@
 
                 <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
+                        <i class="fi-head float-right"></i>
+                        <h6 class="text-muted text-uppercase mb-3">Fabricantes</h6>
+                        <h4 class="mb-3" data-plugin="counterup">{{ $fabricantes }}</h4>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="card-box tilebox-one">
                         <i class="fi-layers float-right"></i>
                         <h6 class="text-muted text-uppercase mb-3">Vacinas</h6>
                         <h4 class="mb-3" data-plugin="counterup">{{ $vacinas }}</h4>
                     </div>
                 </div>
+                <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
                     <div class="card-box tilebox-one">
+                        <i class="fi-layers float-right"></i>
+                        <h6 class="text-muted text-uppercase mb-3">Doses Disponiveis</h6>
+                        <h4 class="mb-3" data-plugin="counterup">{{ $doses->total }}</h4>
+                    </div>
+                </div>
+                    <!--<div class="card-box tilebox-one">
                         <i class="fi-tag float-right"></i>
                         <h6 class="text-muted text-uppercase mb-3">Average Price</h6>
                         <h4 class="mb-3">$<span data-plugin="counterup">15.9</span></h4>
