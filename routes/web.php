@@ -7,6 +7,7 @@ use App\Http\Controllers\Web\PessoaController;
 use App\Http\Controllers\Web\VacinaController;
 use App\Http\Controllers\Web\FabricanteController;
 use App\Http\Controllers\Web\ContactController;
+use App\Http\Controllers\Web\RegistroVacinacaoController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\PostCategorieController;
 
@@ -36,11 +37,19 @@ Route::prefix('admin/')->name('admin.')->middleware("auth:web")->group(function 
 
     Route::get('/', [DashboardController::class, 'index'])->name('home');
 
+    //Routes registro vacinacao
+    Route::get('/registrovacinacao/{id_Pessoa}/{id_Vacina}/{dataVacinacao}/edit', [RegistroVacinacaoController::class, 'editar'])->name('registrovacinacao.editar');
+    Route::put('/registrovacinacao/{id_Pessoa}/{id_Vacina}/{dataVacinacao}', [RegistroVacinacaoController::class, 'atualizar'])->name('registrovacinacao.atualizar');
+    Route::delete('/registrovacinacao/{id_Pessoa}/{id_Vacina}/{dataVacinacao}', [RegistroVacinacaoController::class, 'deletar'])->name('registrovacinacao.deletar');
+    
+    
+
     Route::resources([
         'aboutus'=>  AboutUsController::class,
         'banner' =>  BannerController::class,
         'contact' =>  ContactController::class,
         'pessoa' =>  PessoaController::class,
+        'registrovacinacao' => RegistroVacinacaoController::class,
         'vacina' =>  VacinaController::class,
         'fabricante' => FabricanteController::class,
         'postcategorie' =>  PostCategorieController::class,

@@ -9,7 +9,10 @@ class Pessoa extends Model
 {
     use HasFactory;
 
+    
     protected $primaryKey = 'cpf';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $fillable = [
         'cpf',
@@ -26,5 +29,9 @@ class Pessoa extends Model
         'etnia',
         'planoSaude'
     ];
+
+    public function registrosvacina(){
+        return $this->hasMany(RegistroVacinacao::class, 'id_Pessoa', 'cpf');
+    }
 
 }

@@ -44,7 +44,9 @@
                                 <td>{{ $pessoa->nome }}</td>
                                 <td>{{ $pessoa->sexo }}</td>
                                 <td>{{ $pessoa->etnia }}</td>
-                                <td>{{ $pessoa->planoSaude }}</td>
+                                @if ($pessoa->planoSaude == 0) <td>Não</td>
+                                @else <td>Sim</td>
+                                @endif
                                 <td>
                                     <!-- botao detalhes -->
                                     <button type="button" title="Detalhes da Pessoa" class="btn btn-primary"
