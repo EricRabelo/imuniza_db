@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pessoa;
 use App\Models\Vacina;
 use App\Models\Fabricante;
+use App\Models\Doenca;
 
 class DashboardController extends Controller
 {
@@ -14,6 +15,7 @@ class DashboardController extends Controller
         $pessoas = Pessoa::count();
         $vacinas = Vacina::count();
         $fabricantes = Fabricante::count();
-        return view('admin.home', compact('pessoas', 'vacinas', 'fabricantes'));
+        $doencas = Doenca::count();
+        return view('admin.home', compact('pessoas', 'vacinas', 'fabricantes', 'doencas'));
     }
 }
