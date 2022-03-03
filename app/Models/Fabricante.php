@@ -17,4 +17,8 @@ class Fabricante extends Model
         'cnpj',
         'razaoSocial'
     ];
+
+    public function lotes(){
+        return $this->hasMany(Lote::class, 'id_Fabricante', 'cnpj');
+    }
 }

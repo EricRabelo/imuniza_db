@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Web;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Pessoa;
 use App\Models\Vacina;
@@ -13,7 +13,8 @@ class DashboardController extends Controller
     {
         $pessoas = Pessoa::count();
         $vacinas = Vacina::count();
+        $doses = DB::table('lotes')->select(DB::raw('SUM(qtdDosesDisp) AS total'))->first();
         $fabricantes = Fabricante::count();
-        return view('admin.home', compact('pessoas', 'vacinas', 'fabricantes'));
+        return view('admin.home', compact('pessoas', 'vacinas', 'fabricantes', 'doses'));
     }
 }
