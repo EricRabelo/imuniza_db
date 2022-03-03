@@ -11,6 +11,7 @@ use App\Http\Controllers\Web\RegistroVacinacaoController;
 use App\Http\Controllers\Web\LoteController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\PostCategorieController;
+use App\Http\Controllers\Web\DoencaController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,7 @@ Route::prefix('admin/')->name('admin.')->middleware("auth:web")->group(function 
         'pessoa' =>  PessoaController::class,
         'vacina' =>  VacinaController::class,
         'fabricante' => FabricanteController::class,
+        'doenca' => DoencaController::class,
         'postcategorie' =>  PostCategorieController::class,
     ]);
 

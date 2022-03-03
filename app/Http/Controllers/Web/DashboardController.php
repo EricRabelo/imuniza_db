@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pessoa;
 use App\Models\Vacina;
 use App\Models\Fabricante;
+use App\Models\Doenca;
 
 class DashboardController extends Controller
 {
@@ -15,6 +16,7 @@ class DashboardController extends Controller
         $vacinas = Vacina::count();
         $doses = DB::table('lotes')->select(DB::raw('SUM(qtdDosesDisp) AS total'))->first();
         $fabricantes = Fabricante::count();
-        return view('admin.home', compact('pessoas', 'vacinas', 'fabricantes', 'doses'));
+        $doencas = Doenca::count();
+        return view('admin.home', compact('pessoas', 'vacinas', 'fabricantes', 'doses','doencas'));
     }
 }
