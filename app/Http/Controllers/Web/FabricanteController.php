@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Models\Fabricante;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class FabricanteController extends Controller
 {
@@ -55,13 +57,13 @@ class FabricanteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $idFabricante
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($cnpj)
     {
-        dd($cnpj);
-        $fabricante = $this->$fabricantes->find($cnpj);
+        $fabricante = $this->fabricantes->find($cnpj);
+
         return json_encode($fabricante);
     }
     

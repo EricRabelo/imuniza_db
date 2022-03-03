@@ -10,7 +10,7 @@ class Fabricante extends Model
     use HasFactory;
 
     protected $primaryKey = 'cnpj';
-
+    protected $keyType = 'string';
     public $incrementing = false;
 
     protected $fillable = [

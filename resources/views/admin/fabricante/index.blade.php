@@ -42,7 +42,7 @@
                                 <td>
                                     <!-- botao detalhes -->
                                     <button type="button" title="Detalhes do Fabricante" class="btn btn-primary"
-                                        data-toggle="modal" data-target="#modal-detalhes" data-id="{{ $fabricante->cnpj }}"><i
+                                        data-toggle="modal" data-target="#modal-detalhes" data-id="{{$fabricante->cnpj}}"><i
                                             class="dripicons-italic"></i></button>
                                     <!-- botao editar -->
                                     <a type="button" title="Editar Fabricante" class="btn btn-warning"
@@ -71,6 +71,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <div class="form-group col-md-6 col-sm-12">
+                            <label for="detalhes-cnpj">CNPJ</label>
+                            <input type="text" id="detalhes-cnpj" name="detalhes-cnpj" class="form-control" readonly>
+                        </div>
                         <div class="form-group col-md-6 col-sm-12">
                             <label for="detalhes-razaoSocial">Razão Social</label>
                             <input type="text" id="detalhes-razaoSocial" name="detalhes-razaoSocial" class="form-control" readonly>
@@ -149,6 +153,7 @@
                 const url = 'fabricante/' + id
 
                 $.getJSON(url, (resposta) => {
+                    $("#detalhes-cnpj").val(resposta.cnpj);
                     $("#detalhes-razaoSocial").val(resposta.razaoSocial);
                 });
             })
