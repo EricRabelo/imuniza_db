@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Vacina extends Model
 {
@@ -25,5 +26,17 @@ class Vacina extends Model
 
     public function combates(){
         return $this->hasMany(Combate::class, 'id_Vacina', 'idVacina');
+    }
+
+    public function qtdAplicada(){
+        return DB::table('registro_vacinacao')->where('id_Vacina','=', $this->idVacina)->count();
+    }
+
+    public function qtdRecebida(){
+        return DB::table('lotes')->select(DB::raw('SUM(qtdDosesRec) AS total'))->where('id_Vacina', '=', $this->idVacina)->first();
+    }
+
+    public function qtdDosesDisp(){
+        return DB::table('lotes')->select(DB::raw('SUM(qtdDosesDisp) AS total'))->where('id_Vacina', '=', $this->idVacina)->where('dataValidade', '>', Now())->first();
     }
 }

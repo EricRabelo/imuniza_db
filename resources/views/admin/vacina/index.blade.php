@@ -29,7 +29,8 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Total de vacinas</th>
+                            <th>Vacinas Recebidas</th>
+                            <th>Vacinas Disponíveis</th>
                             <th>Vacinas Aplicadas</th>
                             <th>Ações</th>
                         </tr>
@@ -39,8 +40,9 @@
                         @foreach ($vacinas as $vacina)
                             <tr>
                                 <td>{{ $vacina->nome }}</td>
-                                <td>{{ 0 }}</td>
-                                <td>{{ 0 }}</td>
+                                <td>{{ $vacina->qtdRecebida()->total > 0 ? $vacina->qtdRecebida()->total : 0 }}</td>
+                                <td>{{ $vacina->qtdDosesDisp()->total }}</td>
+                                <td>{{ $vacina->qtdAplicada() }}</td>
                                 <td>
                                     <!-- botao detalhes -->
                                     <a type="button" title="Exibir Lotes da Vacina" class="btn btn-primary"
