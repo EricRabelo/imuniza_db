@@ -47,11 +47,22 @@ class FabricanteController extends Controller
     public function store(Request $request)
     {
         $datas = $request->all();
+        
+        $existeFabricanteCnpj = DB::table('fabricantes')->where('cnpj', '=', $request->cnpj)->count();
 
-        $this->fabricantes->create($datas);
+        $existeFabricanteRazaoSocial = DB::table('fabricante')->where('razaoSocial','=',$request->razaoSocial);
 
-        // retorna para a página index do CRUD de Fabricantes com mensagem de aviso
-        return redirect(route('admin.fabricante.index'))->with('success', 'Fabricante cadastrado com sucesso!');
+        if($existeFabricanteCnpj){
+            return redirect(route('admin.fabricante.create'))->with('danger', 'Ja existe um fabricante com esse CNPJ');
+        }else if($existeFabricanteRazaoSocial){
+            return redirect(route('admin.fabricante.create'))->with('danger', 'Ja existe um fabricante com essa Razão Social');
+        }else{
+
+            $this->fabricantes->create($datas);
+    
+            // retorna para a página index do CRUD de Fabricantes com mensagem de aviso
+            return redirect(route('admin.fabricante.index'))->with('success', 'Fabricante cadastrado com sucesso!');
+        }
     }
 
     /**

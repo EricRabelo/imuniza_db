@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Web;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Doenca;
 
@@ -46,10 +46,17 @@ class DoencaController extends Controller
     {
         $datas = $request->all();
 
-        $this->doencas->create($datas);
+        $existeDoenca = DB::table('doencas')->where('nome', '=', $request->nome)->count();
 
-        // retorna para a página index do CRUD de Doenças com mensagem de aviso
-        return redirect(route('admin.doenca.index'))->with('success', 'Doença cadastrada com sucesso!');
+        if($existeDoenca){
+            return redirect(route('admin.doenca.create'))->with('danger', 'Doença já cadastrada!');
+        }else{
+
+            $this->doencas->create($datas);
+    
+            // retorna para a página index do CRUD de Doenças com mensagem de aviso
+            return redirect(route('admin.doenca.index'))->with('success', 'Doença cadastrada com sucesso!');
+        }
     }
 
     /**
