@@ -19,6 +19,7 @@ class Pessoa extends Model
         'numeroSus',
         'nome',
         'nomeMae',
+        'dataNascimento',
         'sexo',
         'cidade',
         'estado',

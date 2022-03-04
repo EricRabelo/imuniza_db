@@ -50,11 +50,12 @@ class DatabaseSeeder extends Seeder
 
         //Criando pessoas
         $faker = Faker::create();
-        for($i=0; $i<=20; $i++){
+        for($i=0; $i<20; $i++){
             \App\Models\Pessoa::create(['cpf'=>  $i,
             'numeroSus' => $faker->unique()->randomNumber,
             'nome' => $faker->name,
             'nomeMae' => $faker->name,
+            'dataNascimento' => $faker->date,
             'sexo' => 'M',
             'cidade' => 'Sao gabriel',
             'estado' => 'ES',

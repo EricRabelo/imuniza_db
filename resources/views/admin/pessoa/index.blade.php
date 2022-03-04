@@ -96,6 +96,10 @@
                             <input id="detalhes-nomeMae" name="detalhes-nomeMae" class="form-control" readonly>
                         </div>
                         <div class="form-group col-md-6 col-sm-12">
+                            <label for="detalhes-dataNascimento">Data de Nascimento</label>
+                            <input id="detalhes-dataNascimento" name="detalhes-dataNascimento" class="form-control" readonly>
+                        </div>
+                        <div class="form-group col-md-6 col-sm-12">
                             <label for="detalhes-sexo">Sexo</label>
                             <input id="detalhes-sexo" name="detalhes-sexo" class="form-control" readonly>
                         </div>
@@ -211,6 +215,7 @@
                     $("#detalhes-numeroSus").val(resposta.numeroSus);
                     $("#detalhes-nome").val(resposta.nome);
                     $("#detalhes-nomeMae").val(resposta.nomeMae);
+                    $("#detalhes-dataNascimento").val(resposta.dataNascimento);
                     $("#detalhes-sexo").val(resposta.sexo);
                     $("#detalhes-cidade").val(resposta.cidade);
                     $("#detalhes-estado").val(resposta.estado);

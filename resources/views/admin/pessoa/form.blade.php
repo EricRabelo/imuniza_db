@@ -44,6 +44,17 @@
         </div>
     </div>
     <div class="form-group col-md-12 col-sm-12">
+        <label for="dataNascimento">Data de Nascimento</label>
+        <div>
+            <input type="date" required id="dataNascimento" name="dataNascimento" value="{{ isset($pessoa)? $pessoa->dataNascimento: old('dataNascimento') }}" class="form-control @error('dataNascimento') is-invalid @enderror" placeholder="yyyy-mm-dd">
+            @error('dataNascimento')
+            <span class="invalid-feedback" role="alert">
+                <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+    </div>
+    <div class="form-group col-md-12 col-sm-12">
         <label for="sexo">Sexo</label>
         <div>
             <input required type="text" id="sexo" name="sexo" value="{{ isset($pessoa)? $pessoa->sexo: old('sexo') }}" class="form-control @error('sexo') is-invalid @enderror" placeholder="Selecione o Sexo (M/F)">

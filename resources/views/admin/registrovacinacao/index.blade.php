@@ -28,6 +28,7 @@
                 <table class="table table-striped table-bordered datatable" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <th>CPF</th>
                             <th>Nome</th>
                             <th>Data de Vacinação</th>
                             <th>Vacina</th>
@@ -38,6 +39,7 @@
                     <tbody>
                         @foreach ($registros as $registro)
                             <tr>
+                                <td>{{ $registro->pessoa()->first()->cpf }}</td>
                                 <td>{{ $registro->pessoa()->first()->nome }}</td>
                                 <td>{{ $registro->dataFormatada() }}</td>
                                 <td>{{ $registro->vacina()->first()->nome }}</td>

@@ -15,9 +15,9 @@ class CreateCombatesTable extends Migration
     {
         Schema::create('combates', function (Blueprint $table) {
             $table->bigInteger('id_Vacina')->unsigned();
-            $table->foreign('id_Vacina')->references('idVacina')->on('vacinas');
+            $table->foreign('id_Vacina')->references('idVacina')->on('vacinas')->onDelete('cascade')->onUpdate('cascade');
             $table->bigInteger('id_Doenca')->unsigned();
-            $table->foreign('id_Doenca')->references('idDoenca')->on('doencas');
+            $table->foreign('id_Doenca')->references('idDoenca')->on('doencas')->onDelete('cascade')->onUpdate('cascade');
             $table->primary(['id_Vacina', 'id_Doenca']);
             $table->timestamps();
         });

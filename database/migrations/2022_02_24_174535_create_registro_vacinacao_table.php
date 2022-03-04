@@ -15,9 +15,9 @@ class CreateRegistroVacinacaoTable extends Migration
     {
         Schema::create('registro_vacinacao', function (Blueprint $table) {
             $table->string('id_Pessoa',11);
-            $table->foreign('id_Pessoa')->references('cpf')->on('pessoas');
+            $table->foreign('id_Pessoa')->references('cpf')->on('pessoas')->onDelete('cascade')->onUpdate('cascade');
             $table->bigInteger('id_Vacina')->unsigned();
-            $table->foreign('id_Vacina')->references('idVacina')->on('vacinas');
+            $table->foreign('id_Vacina')->references('idVacina')->on('vacinas')->onDelete('cascade')->onUpdate('cascade');
             $table->date('dataVacinacao')->nullable(false);
             $table->primary(['id_Pessoa', 'id_Vacina', 'dataVacinacao']);
             $table->timestamps();

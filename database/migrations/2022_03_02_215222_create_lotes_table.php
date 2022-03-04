@@ -18,9 +18,9 @@ class CreateLotesTable extends Migration
             $table->date('dataRecebimento')->nullable(false);
             $table->primary(['idLote', 'dataRecebimento']);
             $table->bigInteger('id_Vacina')->unsigned();
-            $table->foreign('id_Vacina')->references('idVacina')->on('vacinas');
+            $table->foreign('id_Vacina')->references('idVacina')->on('vacinas')->onDelete('cascade')->onUpdate('cascade');
             $table->string('id_Fabricante',14);
-            $table->foreign('id_Fabricante')->references('cnpj')->on('fabricantes');
+            $table->foreign('id_Fabricante')->references('cnpj')->on('fabricantes')->onDelete('cascade')->onUpdate('cascade');
             $table->string('origem', 255)->nullable(false);
             $table->date('dataValidade')->nullable(false);
             $table->integer('qtdDosesRec')->nullable(false);
