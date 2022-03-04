@@ -41,7 +41,7 @@
                             <tr>
                                 <td>{{ $vacina->nome }}</td>
                                 <td>{{ $vacina->qtdRecebida()->total > 0 ? $vacina->qtdRecebida()->total : 0 }}</td>
-                                <td>{{ $vacina->qtdDosesDisp()->total }}</td>
+                                <td>{{ $vacina->qtdDosesDisp()->total > 0 ? $vacina->qtdDosesDisp()->total : 0 }}</td>
                                 <td>{{ $vacina->qtdAplicada() }}</td>
                                 <td>
                                     <!-- botao detalhes -->
