@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Vacina;
+use App\Models\RegistroVacinacao;
 
 class VacinaController extends Controller
 {
@@ -23,6 +25,7 @@ class VacinaController extends Controller
     public function index()
     {
         $vacinas = $this->vacinas->all();
+        
         return view('admin.vacina.index', compact('vacinas'));
     }
 

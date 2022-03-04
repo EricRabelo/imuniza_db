@@ -63,8 +63,12 @@ class RegistroVacinacaoController extends Controller
                 if($existeRegistro > 0){
                     return redirect(route('admin.registrovacinacao.index'))->with('danger', 'Ja existe um registro igual cadastrado');
                 }else{
-                $this->registros->create($datas);
-                return redirect(route('admin.registrovacinacao.index'))->with('success', 'Registro de vacinacao cadastrado com sucesso!');
+                    if(verificaDisponibilidade($request->id_Vacina)){
+                        $atualizar = DB::table('lotes')->where('id_Vacina', '=', $this->id_Vacina)
+                                                        ->where('dataValidade', '>', Now())->first();
+                    }
+                    $this->registros->create($datas);
+                    return redirect(route('admin.registrovacinacao.index'))->with('success', 'Registro de vacinacao cadastrado com sucesso!');
                 }
             }else{
                 return redirect(route('admin.registrovacinacao.index'))->with('danger', 'O id da vacina informada não existe');
@@ -161,5 +165,17 @@ class RegistroVacinacaoController extends Controller
         $registro->delete();
 
         return redirect(route('admin.registrovacinacao.index'))->with('success', 'Registro deletado com sucesso!');
+    }
+
+    public function verificaDisponibilidade($id_Vacina){
+        if(DB::table('lotes')->select(DB::raw('SUM(qtdDosesDisp) AS total'))->where('id_Vacina', '=', $this->id_Vacina)->where('dataValidade', '>', Now())->first() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function decrementaVacina($tipoVacina, $id_Vacina){
+
     }
 }
