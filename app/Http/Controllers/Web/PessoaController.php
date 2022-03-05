@@ -48,10 +48,16 @@ class PessoaController extends Controller
     {
         $datas = $request->all();
 
-        $this->pessoas->create($datas);
+        if(DB::table('pessoas')->where('cpf','=',$request->cpf)->count()){
+            return redirect(route('admin.pessoa.index'))->with('danger', 'CPF já cadastrado!');
+        }else{
 
-        // retorna para a página index do CRUD de Pessoas com mensagem de aviso
-        return redirect(route('admin.pessoa.index'))->with('success', 'Pessoa cadastrada com sucesso!');
+            $this->pessoas->create($datas);
+    
+            // retorna para a página index do CRUD de Pessoas com mensagem de aviso
+            return redirect(route('admin.pessoa.index'))->with('success', 'Pessoa cadastrada com sucesso!');
+        }
+
     }
 
     /**
@@ -112,5 +118,7 @@ class PessoaController extends Controller
 
         return redirect(route('admin.pessoa.index'))->with('success', 'Pessoa deletada com sucesso!');
     }
+
+    
 
 }

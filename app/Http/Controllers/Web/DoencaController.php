@@ -49,7 +49,7 @@ class DoencaController extends Controller
         $existeDoenca = DB::table('doencas')->where('nome', '=', $request->nome)->count();
 
         if($existeDoenca){
-            return redirect(route('admin.doenca.create'))->with('danger', 'Doença já cadastrada!');
+            return redirect(route('admin.doenca.index'))->with('danger', 'Doença já cadastrada!');
         }else{
 
             $this->doencas->create($datas);

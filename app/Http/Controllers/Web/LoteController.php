@@ -52,10 +52,16 @@ class LoteController extends Controller
     {
         $datas = $request->all();
 
-        $this->lotes->create($datas);
+        if(DB::table('lotes')->where('idLote', '=', $request->idLote)->count()){
+            return redirect(route('admin.lote.index'))->with('danger', 'Lote já cadastrado!');
+        }else{
 
-        // retorna para a página index do CRUD de lotes com mensagem de aviso
-        return redirect(route('admin.lote.index'))->with('success', 'Lote cadastrado com sucesso!');
+            $this->lotes->create($datas);
+    
+            // retorna para a página index do CRUD de lotes com mensagem de aviso
+            return redirect(route('admin.lote.index'))->with('success', 'Lote cadastrado com sucesso!');
+        }
+
     }
 
     /**

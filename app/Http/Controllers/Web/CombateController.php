@@ -49,9 +49,17 @@ class CombateController extends Controller
     public function store(Request $request)
     {
         $datas = $request->all();
+        
+        $existeCombate = DB::table('combates')->where('id_Vacina','=', $request->id_Vacina)
+        ->where('id_Doenca','=',$request->id_Doenca)->count();
 
-        $this->combates->create($datas);
-        return redirect(route('admin.combate.index'))->with('success', 'Combate de doença cadastrado com sucesso!');
+        if($existeCombate){
+            return redirect(route('admin.combate.index'))->with('danger', 'Combate já cadastrado!');
+        }else{
+            $this->combates->create($datas);
+            return redirect(route('admin.combate.index'))->with('success', 'Combate de doença cadastrado com sucesso!');
+        }
+
                 
     }
 

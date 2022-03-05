@@ -49,10 +49,16 @@ class VacinaController extends Controller
     {
         $datas = $request->all();
 
-        $this->vacinas->create($datas);
+        if(DB::table('vacinas')->where('nome','=',$request->nome)->count()){
+            return redirect(route('admin.vacina.index'))->with('danger', 'Vacina já cadastrada!');
+        }else{
 
-        // retorna para a página index do CRUD de Vacinas com mensagem de aviso
-        return redirect(route('admin.vacina.index'))->with('success', 'Vacina cadastrada com sucesso!');
+            $this->vacinas->create($datas);
+    
+            // retorna para a página index do CRUD de Vacinas com mensagem de aviso
+            return redirect(route('admin.vacina.index'))->with('success', 'Vacina cadastrada com sucesso!');
+        }
+
     }
 
     /**
