@@ -57,8 +57,12 @@
     <div class="form-group col-md-12 col-sm-12">
         <label for="sexo">Sexo</label>
         <div style="gap:1rem; display:flex;">
-            <div style="display:flex; align-items:center; gap:.3rem;"><input type="radio" id="sexo" name="sexo" value="M"> Masculino</div>
-            <div style="display:flex; align-items:center; gap:.3rem;"><input type="radio" id="sexo" name="sexo" value="F"> Feminino</div>
+            <div style="display:flex; align-items:center; gap:.3rem;"><input @if(isset($pessoa) && $pessoa->sexo == "M")
+                                                                                    checked
+                                                                                @endif type="radio" id="sexo" name="sexo" value="M">Masculino</div>
+            <div style="display:flex; align-items:center; gap:.3rem;"><input @if(isset($pessoa) && $pessoa->sexo == "F")
+                                                                                    checked 
+                                                                                @endif type="radio" id="sexo" name="sexo" value="F">Feminino</div>
             @error('sexo')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
@@ -148,8 +152,13 @@
         <div>
             <!-- <input required type="text" id="planoSaude" name="planoSaude" value="{{ isset($pessoa)? $pessoa->planoSaude: old('planoSaude') }}" class="form-control @error('planoSaude') is-invalid @enderror" placeholder="Possui plano de saude?"> -->
             <select style="width:100%; border: 1px solid #ccc; border-radius: 4px; padding: 0.375rem 0.75rem; background-color: #fff;" name="planoSaude" id="planoSaude">
-                <option style="padding: 0.375rem 0.75rem;" value="1">Sim</option>
-                <option value="0">Não</option>
+                <option value="">--- Selecione uma opção ---</option>
+                <option @if(isset($pessoa) && $pessoa->planoSaude == "1")
+                            selected
+                        @endif style="padding: 0.375rem 0.75rem;" value="1">Sim</option>
+                <option @if(isset($pessoa) && $pessoa->planoSaude == "0")
+                            selected
+                        @endif value="0">Não</option>
             </select>
             @error('planoSaude')
             <span class="invalid-feedback" role="alert">
