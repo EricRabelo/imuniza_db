@@ -50,12 +50,12 @@ class FabricanteController extends Controller
         
         $existeFabricanteCnpj = DB::table('fabricantes')->where('cnpj', '=', $request->cnpj)->count();
 
-        $existeFabricanteRazaoSocial = DB::table('fabricante')->where('razaoSocial','=',$request->razaoSocial);
+        $existeFabricanteRazaoSocial = DB::table('fabricantes')->where('razaoSocial','=',$request->razaoSocial)->count();
 
         if($existeFabricanteCnpj){
-            return redirect(route('admin.fabricante.create'))->with('danger', 'Ja existe um fabricante com esse CNPJ');
+            return redirect(route('admin.fabricante.index'))->with('danger', 'Ja existe um fabricante com esse CNPJ');
         }else if($existeFabricanteRazaoSocial){
-            return redirect(route('admin.fabricante.create'))->with('danger', 'Ja existe um fabricante com essa Razão Social');
+            return redirect(route('admin.fabricante.index'))->with('danger', 'Ja existe um fabricante com essa Razão Social');
         }else{
 
             $this->fabricantes->create($datas);
