@@ -20,6 +20,7 @@ class CreateRegistroVacinacaoTable extends Migration
             $table->foreign('id_Vacina')->references('idVacina')->on('vacinas')->onDelete('cascade')->onUpdate('cascade');
             $table->date('dataVacinacao')->nullable(false);
             $table->primary(['id_Pessoa', 'id_Vacina', 'dataVacinacao']);
+            $table->integer('id_Lote')->references('idLote')->on('lotes')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             
         });

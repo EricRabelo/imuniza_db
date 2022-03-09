@@ -20,7 +20,6 @@ class DashboardController extends Controller
                                     ->where('doencas.nome', '=', "Covid")
                                     ->orderBy('pessoas.nome', 'ASC')
                                     ->orderBy('registro_vacinacao.dataVacinacao','ASC')->get();
-        // dd($script1);
         $pessoas = Pessoa::count();
         $vacinas = Vacina::count();
         $doses = DB::table('lotes')->select(DB::raw('SUM(qtdDosesDisp) AS total'))->first();

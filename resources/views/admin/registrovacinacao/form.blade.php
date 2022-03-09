@@ -36,4 +36,18 @@
             @enderror
         </div>
     </div>
+    @if ($registro)
+    <div class="form-group col-md-12 col-sm-12">
+        <label for="id_Lote">Lote antigo</label>
+        <div>
+            <input type="text" required id="id_Lote" name="id_Lote" value="{{ isset($registro)? $registro->id_Lote: old('id_Lote') }}" class="form-control @error('id_Lote') is-invalid @enderror" placeholder="" readonly>
+            <p> </p>
+            @error('id_Lote')
+            <span class="invalid-feedback" role="alert">
+                <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+    </div>
+    @endif
 </div>
