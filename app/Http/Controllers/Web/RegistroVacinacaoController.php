@@ -55,7 +55,9 @@ class RegistroVacinacaoController extends Controller
             }
             else{ 
                 if($this->registros->verificaDisponibilidade($request->id_Vacina)){
-                    $this->registros->decrementaVacina($request);
+                    $id_Lote=$this->registros->decrementaVacina($request);
+                    $lote_array = array('id_Lote'=>$id_Lote);
+                    $datas=array_merge($lote_array, $datas);
                     $this->registros->create($datas);
                     return redirect(route('admin.registrovacinacao.index'))->with('success', 'Registro de vacinacao cadastrado com sucesso!');
                 }else return redirect(route('admin.registrovacinacao.index'))->with('danger', 'Não existe doses disponiveis para essa vacina!');
@@ -109,8 +111,8 @@ class RegistroVacinacaoController extends Controller
         }
         else{ 
             if($this->registros->verificaDisponibilidade($request->id_Vacina)){
-                $this->registros->substituiVacina($id_Vacina, $request->id_Vacina);
-                $registro->update(['id_Pessoa'=> $request->id_Pessoa, 'id_Vacina' => $request->id_Vacina, 'dataVacinacao' => $request->dataVacinacao]);
+                $id_Lote=$this->registros->substituiVacina($id_Vacina, $request->id_Lote, $request->id_Vacina);
+                $registro->update(['id_Pessoa'=> $request->id_Pessoa, 'id_Vacina' => $request->id_Vacina, 'dataVacinacao' => $request->dataVacinacao, 'id_Lote'=> $id_Lote,]);
                 return redirect(route('admin.registrovacinacao.index'))->with('success', 'Registro atualizado com sucesso!');
             }else return redirect(route('admin.registrovacinacao.index'))->with('danger', 'Não existe doses disponiveis para essa vacina!');
         }

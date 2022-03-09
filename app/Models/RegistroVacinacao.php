@@ -22,7 +22,8 @@ class RegistroVacinacao extends Model
     protected $fillable = [
         'id_Pessoa',
         'id_Vacina',
-        'dataVacinacao'
+        'dataVacinacao',
+        'id_Lote'
     ];
 
     public function pessoa(){
@@ -41,7 +42,7 @@ class RegistroVacinacao extends Model
     public function decrementaVacina(Request $request){
         $atualizar = DB::table('lotes')->where('id_Vacina', '=', $request->id_Vacina)->where('dataValidade', '>', Now())->where('qtdDosesDisp', '>', 0)->first();
         Lote::where('idLote',$atualizar->idLote)->where('dataRecebimento', '=', $atualizar->dataRecebimento)->update(array('qtdDosesDisp'=>$atualizar->qtdDosesDisp-1));
-        return;
+        return $atualizar->idLote;
     }
 
     public function existePessoa(string $cpf){
@@ -66,13 +67,13 @@ class RegistroVacinacao extends Model
         else return false;
     }
 
-    public function substituiVacina(string $vacinaAntiga, string $vacinaNova){
+    public function substituiVacina(string $vacinaAntiga, int $loteAntigo, string $vacinaNova){
 
-        $atualizar1 = DB::table('lotes')->where('id_Vacina', '=', $vacinaAntiga)->where('dataValidade', '>', Now())->first();
+        $atualizar1 = DB::table('lotes')->where('id_Vacina', '=', $vacinaAntiga)->where('idLote', '=', $loteAntigo)->first();
         Lote::where('idLote',$atualizar1->idLote)->update(array('qtdDosesDisp'=>$atualizar1->qtdDosesDisp+1));
         $atualizar2 = DB::table('lotes')->where('id_Vacina', '=', $vacinaNova)->where('dataValidade', '>', Now())->first();
         Lote::where('idLote',$atualizar2->idLote)->update(array('qtdDosesDisp'=>$atualizar2->qtdDosesDisp-1));
-        return;
+        return $atualizar2->idLote;
     }
 
 }

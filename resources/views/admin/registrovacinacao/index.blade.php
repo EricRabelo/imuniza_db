@@ -32,6 +32,7 @@
                             <th>Nome</th>
                             <th>Data de Vacinação</th>
                             <th>Vacina</th>
+                            <th>Lote</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -43,6 +44,7 @@
                                 <td>{{ $registro->pessoa()->first()->nome }}</td>
                                 <td>{{ $registro->dataFormatada() }}</td>
                                 <td>{{ $registro->vacina()->first()->nome }}</td>
+                                <th>{{ $registro->id_Lote }}</th>
                                 <td>
                                     <!-- botao editar -->
                                     <a type="button" title="Editar Registro" class="btn btn-warning"
