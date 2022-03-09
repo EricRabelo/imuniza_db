@@ -37,7 +37,7 @@ class DashboardController extends Controller
                                     })->when($idDoenca!=null, function($query) use ($idDoenca){
                                         $query->join('combates','combates.id_Vacina', '=', 'vacinas.idVacina')
                                         ->join('doencas', 'doencas.idDoenca', '=', 'combates.id_Doenca')
-                                        ->where('doencas.idDoenca', '=', $idDoenca)->selectAdd('doencas.nome as doenca');
+                                        ->where('doencas.idDoenca', '=', $idDoenca);
                                     })->get();
         return view('admin.consulta.index',compact('registros'));
     }
