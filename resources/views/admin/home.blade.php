@@ -60,6 +60,37 @@
 
         </div> <!-- end container -->
     </div>
+    <form class="form-consulta" id="form-consulta" action="{{ route('admin.buscar') }}" method="POST" enctype="multipart/form-data">
+    <div class="consulta">
+        @csrf
+        <legend> Selecione os filtros de busca: </legend>
+        <div class="escolhas">
+            <fieldset>
+            <div>
+                <input type = "checkbox" id = "alfabetica" name = "alfabetica" value = "Ordem alfabetica">
+                <label for = "alfabetica"> Nome </label>
+            </div>
+            <div>
+                <input type = "checkbox" id = "data" name = "data" value = "data">
+                <label for = "data"> Data </label>
+            </div>
+            </fieldset>
+            <div class="doenca">
+                <label for="id_Doenca">Doença</label>
+                <select id="id_Doenca" name="id_Doenca" class="form-control">
+                    <option value="">Selecione uma Doença</option>
+                        @foreach ($doencas as $doenca)
+                            <option
+                                value="{{$doenca->idDoenca}}">{{$doenca->nome}}</option>
+                        @endforeach
+                </select>
+            </div>
+        </div>
+        
+    </form>
+    <button class="filtrar" type="submit">Filtrar</button>
+        
+    </div>
     <!-- end wrapper -->
 
 @endsection

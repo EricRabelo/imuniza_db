@@ -35,4 +35,8 @@ class Pessoa extends Model
         return $this->hasMany(RegistroVacinacao::class, 'id_Pessoa', 'cpf');
     }
 
+    public function dataNascimentoFormatada()
+    {
+        return date('d/m/Y', strtotime($this->attributes['dataNascimento']));
+    }
 }
