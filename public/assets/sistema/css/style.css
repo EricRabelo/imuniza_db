@@ -4718,3 +4718,33 @@ h3.timeline-title {
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+.consulta{
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.consulta .escolhas{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.consulta .escolhas .doenca{
+  width: 20%;
+  margin-top: -2rem;
+  padding-bottom: 20px;
+}
+
+.consulta .filtrar{
+  width: 20%;
+}
+
+.escolhas fieldset{
+  align-items: center;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}

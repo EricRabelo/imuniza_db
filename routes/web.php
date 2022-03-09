@@ -13,6 +13,7 @@ use App\Http\Controllers\Web\CombateController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\PostCategorieController;
 use App\Http\Controllers\Web\DoencaController;
+use App\Http\Controllers\Web\ConsultaController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('admin/')->name('admin.')->middleware("auth:web")->group(function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('home');
+    Route::post('/buscar', [DashboardController::class, 'buscar'])->name('buscar');
 
     Route::resources([
         'aboutus'=>  AboutUsController::class,
@@ -71,7 +73,6 @@ Route::prefix('admin/')->name('admin.')->middleware("auth:web")->group(function 
     Route::get('/combate/{id_Vacina}/{id_Doenca}', [CombateController::class, 'mostrar'])->name('combate.mostrar');
     Route::put('/combate/{id_Vacina}/{id_Doenca}', [CombateController::class, 'atualizar'])->name('combate.atualizar');
     Route::delete('/combate/{id_Vacina}/{id_Doenca}', [CombateController::class, 'deletar'])->name('combate.deletar');
-
 
     //Routes banner
     Route::get('banner/{id}/status', [BannerController::class, 'statusToggleBanner'])->name('banner.status');
