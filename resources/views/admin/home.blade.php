@@ -60,8 +60,9 @@
 
         </div> <!-- end container -->
     </div>
+    
     <form class="form-consulta" id="form-consulta" action="{{ route('admin.buscar') }}" method="POST" enctype="multipart/form-data">
-    <div class="consulta">
+        <div class="consulta">
         @csrf
         <legend> Selecione os filtros de busca: </legend>
         <div class="escolhas">

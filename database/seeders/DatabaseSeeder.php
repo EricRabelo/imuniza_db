@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
             'rua' => 'sdfgasdfga' ,
             'bairro' => 'teste',
             'num' => $i,
-            'estadoCivil' => 'soltweiro',
+            'estadoCivil' => 'solteiro',
             'etnia' => 'pardo',
             'planoSaude' => '1']);
         }
