@@ -9,17 +9,20 @@ class Pessoa extends Model
 {
     use HasFactory;
 
+    
     protected $primaryKey = 'cpf';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $fillable = [
         'cpf',
         'numeroSus',
         'nome',
         'nomeMae',
+        'dataNascimento',
         'sexo',
         'cidade',
         'estado',
-        'endereco',
         'rua',
         'bairro',
         'num',
@@ -28,4 +31,12 @@ class Pessoa extends Model
         'planoSaude'
     ];
 
+    public function registrosvacina(){
+        return $this->hasMany(RegistroVacinacao::class, 'id_Pessoa', 'cpf');
+    }
+
+    public function dataNascimentoFormatada()
+    {
+        return date('d/m/Y', strtotime($this->attributes['dataNascimento']));
+    }
 }
