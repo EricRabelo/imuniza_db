@@ -1,6 +1,12 @@
 # Trabalho Imuniza_DB
 Site Imuniza 
 
+*****
+login: admin@imuniza.com
+
+senha: admin
+*****
+
 Para iniciar a trabalhar no projeto:
 
 - git clone **linkdorepositório**
