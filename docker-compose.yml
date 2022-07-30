@@ -1,0 +1,21 @@
+services:
+    imuniza_db:
+        image: bitnami/laravel:latest
+        ports:
+            - "8080:80"
+        volumes:
+            - ./:/tmp/imuniza_db
+        networks:
+            - app-network
+    mysql-app:
+        image: mysql:latest
+        ports:
+            - "3307:3306"
+        environment:
+            MYSQL_DATABASE: imuniza
+            MYSQL_ROOT_PASSWORD: user
+        networks:
+            - app-network
+networks:
+    app-network:
+        driver: bridge
