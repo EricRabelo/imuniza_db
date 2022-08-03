@@ -1,0 +1,49 @@
+services:
+    mysql-app:
+        image: mysql:latest
+        container_name: mysql
+        restart: unless-stopped
+        tty: true
+        ports:
+            - "3307:3306"
+        environment:
+            MYSQL_USER: user
+            MYSQL_PASSWORD: user
+            MYSQL_ROOT_PASSWORD: user
+            MYSQL_DATABASE: imuniza
+            MYSQL_INITDB_SKIP_TZINFO: true
+        networks:
+            - app-network
+
+    imuniza_db:
+        image: bitnami/laravel:latest
+        #build: ./
+        container_name: app
+        command: >
+                sh -c "composer update &&
+                php artisan key:generate &&
+                php artisan migrate --seed &&
+                php artisan serve --host 0.0.0.0"
+        restart: unless-stopped
+        tty: true
+        working_dir: /app/
+        environment:
+            - DB_HOST=mysql-app
+            - DB_PORT=3306
+            - DB_USERNAME=user
+            - DB_PASSWORD=user
+            - DB_DATABASE=imuniza
+        depends_on:
+            - mysql-app
+        ports:
+            - "8000:8000"
+        expose:
+            - "8000"
+        volumes:
+            - ./:/app/
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge

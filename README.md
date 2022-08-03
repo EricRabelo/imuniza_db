@@ -10,11 +10,10 @@ senha: admin
 Para iniciar a trabalhar no projeto:
 
 - git clone **linkdorepositório**
-- Executar **composer update** na pasta do projeto
-- Criar schema no Banco de Dados
-- Criar arquivo .env com base no .env.example
-- Executar **php artisan key:generate**
-- Executar **php artisan migrate --seed**
+- instalar o docker ce e o docker-compose
+- Criar cópia do arquivo env com nome .env
+- Executar docker-compose up -d
+- O site estará acessivel através do link **http://172.17.0.1:8000/**
 
 Você precisa de fazer um fork do projeto para seu repositório
 
