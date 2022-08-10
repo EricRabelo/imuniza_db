@@ -14,16 +14,14 @@ services:
             MYSQL_INITDB_SKIP_TZINFO: true
         networks:
             - app-network
+        volumes:
+            - ./database/dados:/var/lib/mysql
 
     imuniza_db:
         image: bitnami/laravel:latest
         #build: ./
         container_name: app
-        command: >
-                sh -c "composer update &&
-                php artisan key:generate &&
-                php artisan migrate --seed &&
-                php artisan serve --host 0.0.0.0"
+        command: bash
         restart: unless-stopped
         tty: true
         working_dir: /app/
@@ -47,3 +45,4 @@ services:
 networks:
     app-network:
         driver: bridge
+
