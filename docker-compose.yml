@@ -21,7 +21,7 @@ services:
         image: bitnami/laravel:latest
         #build: ./
         container_name: app
-        command: bash
+        command: sh -c "composer update && cp env .env && bash"
         restart: unless-stopped
         tty: true
         working_dir: /app/
