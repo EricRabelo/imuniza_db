@@ -17,23 +17,15 @@
 
 ***
 
-### Passos para hostear a aplicação no local host:
+### Hostear a aplicação no local host:
 
-##### Passo 1) Iniciar os containers com o comando:
-   > **docker-compose up -d**
+##### Iniciar os containers com o comando:
+   > **docker-compose up**
 
-###### ***Após esse passo, os seguintes containers devem estar rodando na sua máquina:***
+###### ***Os seguintes containers devem estar rodando na sua máquina:***
 
 	mysql -> container do banco de dados;
 	app -> container da aplicação laravel.
-
-###### ***Antes de executar o próximo passo, esperar no mínimo 1 minuto para garantir que o composer terminou de dar update.***
-
-###### ***Caso esteja inseguro quanto ao tempo necessário, rode o docker-compose up sem o "-d" e poderá ver o progresso.***
-
-##### Passo 2) Hostear a aplicação laravel com o comando:
-
->**docker exec -it -d app php artisan serve --host 0.0.0.0**
 
 #### O site estará acessivel através do link:
 
