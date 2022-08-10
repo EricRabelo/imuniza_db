@@ -27,6 +27,10 @@
 	mysql -> container do banco de dados;
 	app -> container da aplicação laravel.
 
+###### ***Antes de executar o próximo passo, esperar no mínimo 1 minuto para garantir que o composer terminou de dar update.***
+
+###### ***Caso esteja inseguro quanto ao tempo necessário, rode o docker-compose up sem o "-d" e poderá ver o progresso.***
+
 ##### Passo 2) Hostear a aplicação laravel com o comando:
 
 >**docker exec -it -d app php artisan serve --host 0.0.0.0**
