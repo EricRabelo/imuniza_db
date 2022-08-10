@@ -1,5 +1,5 @@
 # Trabalho Imuniza_DB
-##Site Imuniza 
+## Site Imuniza 
 
 *****
 **login: admin@imuniza.com**
@@ -7,27 +7,27 @@
 **senha: admin**
 *****
 
-###Passos para configurar seu ambiente:
+### Passos para configurar seu ambiente:
 
-#####Passo 1) Clonar o repositório com o comando:
+##### Passo 1) Clonar o repositório com o comando:
 
 >**git clone linkdorepositório **
 
-#####Passo 2) Instalar o docker ce e o docker-compose mais atuais para seu sistema atual;
+##### Passo 2) Instalar o docker ce e o docker-compose mais atuais para seu sistema atual;
 
 ***
 
-###Passos para hostear a aplicação no local host:
+### Passos para hostear a aplicação no local host:
 
-#####Passo 1) Iniciar os containers com o comando:
+##### Passo 1) Iniciar os containers com o comando:
    > **docker-compose up -d**
 
-######***Após esse passo, os seguintes containers devem estar rodando na sua máquina:***
+###### ***Após esse passo, os seguintes containers devem estar rodando na sua máquina:***
 
 	mysql -> container do banco de dados;
 	app -> container da aplicação laravel.
 
-#####Passo 2) Hostear a aplicação laravel com o comando:
+##### Passo 2) Hostear a aplicação laravel com o comando:
 
 >**docker exec -it -d app php artisan serve --host 0.0.0.0**
 
@@ -35,23 +35,23 @@
 
 >**http://172.17.0.1:8000/admin**;
 
-###Para trabalhar no projeto e submeter pull requests:
+### Para trabalhar no projeto e submeter pull requests:
 
 - ***Você precisa de fazer um fork do projeto para seu repositório***
 
-#####Depois, no terminal na pasta do seu projeto dê o comando: 
+##### Depois, no terminal na pasta do seu projeto dê o comando: 
 
 >git remote add **seunome** **linkdofork**
 
-#####Criar uma branch
+##### Criar uma branch
 
 >git checkout -b **nomebranch**
 
-#####Quando solicitado "Dar pull":
+##### Quando solicitado "Dar pull":
 
 >git pull origin **nomebranch**
 
-#####Ao concluir uma tarefa:
+##### Ao concluir uma tarefa:
 
 >git add .
 git commit -m **nomedocommit**
