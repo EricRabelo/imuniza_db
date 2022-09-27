@@ -13,7 +13,7 @@ Para iniciar a trabalhar no projeto:
 - instalar o docker ce e o docker-compose
 - Criar cópia do arquivo env com nome .env
 - Executar docker-compose up -d
-- O site estará acessivel através do link **http://172.17.0.1:8000/**
+- O site estará acessivel através do link **http://172.17.0.1:8000/admin**
 
 Você precisa de fazer um fork do projeto para seu repositório
 
